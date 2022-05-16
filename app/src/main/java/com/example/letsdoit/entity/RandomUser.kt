@@ -17,7 +17,7 @@ data class Name(
     val last:String
 )
 data class Location(
-    val street:String,
+
     val city:String
 )
 data class Id(

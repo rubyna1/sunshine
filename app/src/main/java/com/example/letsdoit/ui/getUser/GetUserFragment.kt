@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import com.example.letsdoit.R
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
@@ -29,7 +30,10 @@ class GetUserFragment :DaggerFragment(){
     }
 
     private fun initialize(){
-        val data=getUserViewModel.getRandomUser()
-        Log.i("GetUserFragment","$data.")
+        getUserViewModel.getRandomUser()
+        getUserViewModel.userData.observe(this, Observer {
+            Log.i("GetUserFragment","$it.")
+        })
+
     }
 }
